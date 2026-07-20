@@ -19,16 +19,16 @@
 #
 ---
 include:
-  - board: nrf52840dongle
-    #snippet: zmk-usb-logging
+  - board: nrf52840dongle//zmk
+    snippet: zmk-usb-logging
     shield: glove80_dongle
 
   - board: glove80_lh
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_USB=n -DCONFIG_ZMK_USB_BOOT=n -DCONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: glove80_rh
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
-  - board: nrf52840dongle
+  - board: nrf52840dongle//zmk
     shield: settings_reset
   - board: glove80_lh
     shield: settings_reset

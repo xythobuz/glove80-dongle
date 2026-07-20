@@ -9,6 +9,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &physical_layout0;
+        zmk,underglow = &mock_underglow;
     };
     
     mock_kscan: mock_kscan_0 {
@@ -30,5 +31,9 @@
             RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(0,6) RC(1,6) RC(2,6)   RC(2,7) RC(1,7)  RC(0,7) RC(4,8) RC(4,9) RC(4,10) RC(4,11) RC(4,12) RC(4,13)
             RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4)         RC(3,6) RC(4,6) RC(5,6)   RC(5,7) RC(4,7)  RC(3,7)         RC(5,9) RC(5,10) RC(5,11) RC(5,12) RC(5,13)
         >;
+    };
+
+    mock_underglow: mock_underglow_0 {
+        compatible = "zmk,underglow-mock";
     };
 };

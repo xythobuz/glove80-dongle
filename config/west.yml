@@ -8,8 +8,7 @@ manifest:
       url-base: https://github.com/moergo-sc
   projects:
     - name: zmk
-      remote: moergo-sc
-      revision: zephyr-4-1
+      remote: zmkfirmware
       import: app/west.yml
   self:
     path: config
