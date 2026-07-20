@@ -2,10 +2,15 @@
 
 This is my attempt at getting an [nRF52840 Dongle (PCA10059)](https://www.nordicsemi.com/Products/Development-hardware/nRF52840-Dongle) to work as a BLE central for my Glove80 keyboard.
 
+If you just want to get started quickly, grab the [latest pre-built binaries](https://github.com/xythobuz/glove80-dongle/releases).
+
+## Background
+
 I started out with ["zmk-dongle-config" by stammy](https://github.com/stammy/zmk-dongle-config), which didn't need much adjustmends to build, but I wasn't getting any keystrokes.
 Looking at the USB logs, the key presses were transmitted and detected, but it didn't know what to do with them.
 So I simply added the physical-layout and keymap related stuff that was missing, as explained in the [documentation for dongles](https://zmk.dev/docs/hardware-integration/dongle).
 This got me a working upstream ZMK Glove80 build with Dongle support.
+To get the underglow feature working just needed a mock led strip config in the dongle device tree so the setting is synced globally from the central to the peripherals.
 
 ## Details
 
@@ -22,7 +27,10 @@ Otherwise only the board name for the dongle changes, and of course the indicato
 As the build fails with missing functions, I guess the problem is more fundamental.
 The required data is only available on the Central, which is now the dongle, so without a mechanism to transfer this state, the left-hand side can't know or show them.
 
-## Dongle
+So back to the upstream ZMK, I then got the underglow feature working thanks to [this issue by Samsuper12](https://github.com/zmkfirmware/zmk/issues/3017).
+Binaries from this are [also available](https://github.com/xythobuz/glove80-dongle/releases/tag/upstream-v2).
+
+## Flash Dongle
 
 ### Preparing nrfutil
 
@@ -45,7 +53,7 @@ To enter the bootloader, stick the dongle into an USB port, then press the `RESE
 
     ./nrfutil device program --firmware dongle.zip --traits nordicDfu
 
-## Keyboard
+## Flash Keyboard
 
 Flash the two halves [as usual](https://docs.moergo.com/glove80-user-guide/customizing-key-layout/#putting-glove80-into-bootloader-for-firmware-loading).
 When switching to the dongle or back, remember to flash the settings-reset firmware in between, to clear cached Bluetooth pairing info.
