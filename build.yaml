@@ -19,7 +19,7 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: nrf52840dongle
     shield: glove80_dongle
 
   - board: glove80_lh
