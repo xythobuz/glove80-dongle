@@ -19,7 +19,7 @@
 #
 ---
 include:
-  - board: nrf52840dongle
+  - board: xiao_ble//zmk
     shield: glove80_dongle
 
   - board: glove80_lh
