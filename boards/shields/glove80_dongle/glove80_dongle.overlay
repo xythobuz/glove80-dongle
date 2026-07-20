@@ -72,4 +72,10 @@
             RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4)         RC(3,6) RC(4,6) RC(5,6)   RC(5,7) RC(4,7)  RC(3,7)         RC(5,9) RC(5,10) RC(5,11) RC(5,12) RC(5,13)
         >;
     };
+
+    EXT_POWER {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>; /* WS2812_CE */
+        init-delay-ms = <100>;
+    };
 };
