@@ -5,13 +5,13 @@
 # pass flags to the build command, `snippet` to add a Zephyr snippet, and
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 #
-# board: [ "nice_nano_v2" ]
+# board: [ "nice_nano" ]
 # shield: [ "corne_left", "corne_right" ]
 # include:
 #   - board: bdn9_rev2
-#   - board: nice_nano_v2
+#   - board: nice_nano
 #     shield: reviung41
-#   - board: nice_nano_v2
+#   - board: nice_nano
 #     shield: corne_left
 #     snippet: studio-rpc-usb-uart
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
@@ -20,8 +20,14 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    snippet: zmk-usb-logging
     shield: glove80_dongle
-  - board: seeeduino_xiao_ble
-    snippet: zmk-usb-logging
+
+  - board: glove80_lh
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: glove80_rh
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  - board: glove80_lh
+    shield: settings_reset
+  - board: glove80_rh
     shield: settings_reset
