@@ -35,5 +35,6 @@
 
     mock_underglow: mock_underglow_0 {
         compatible = "zmk,underglow-mock";
+        chain_length = <0>;
     };
 };
