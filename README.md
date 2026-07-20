@@ -2,6 +2,13 @@
 
 This is my attempt at getting an [nRF52840 Dongle (PCA10059)](https://www.nordicsemi.com/Products/Development-hardware/nRF52840-Dongle) to work as a BLE central for my Glove80 keyboard.
 
+I started out with ["zmk-dongle-config" by stammy](https://github.com/stammy/zmk-dongle-config), which didn't need much adjustmends to build, but I wasn't getting any keystrokes.
+Looking at the USB logs, the key presses were transmitted and detected, but it didn't know what to do with them.
+So I simply added the physical-layout and keymap related stuff that was missing, as explained in the [documentation for dongles](https://zmk.dev/docs/hardware-integration/dongle).
+This got me a working upstream ZMK Glove80 build with Dongle support.
+
+## Details
+
 There are two options, the [upstream ZMK](https://github.com/zmkfirmware/zmk) and the [MoErgo fork](https://github.com/moergo-sc/zmk).
 
 I got a working version built with the [upstream commit `a23b84a` or so](https://github.com/zmkfirmware/zmk/commit/a23b84ae290883cddc2a43bde3f41649f0a3e3b6).
