@@ -1,8 +1,8 @@
-#include "glove80-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "glove80-layouts.dtsi"
 
 &physical_layout0 {
-    transform = <&default_transform>;
+    transform = <&matrix_transform0>;
 };
 
 / {
@@ -18,7 +18,7 @@
         events = <0>;
     };
 
-    default_transform: keymap_transform_0 {
+    matrix_transform0: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
         rows = <6>;
