@@ -6,9 +6,12 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: moergo-sc
       url-base: https://github.com/moergo-sc
+    - name: zampierilucas
+      url-base: https://github.com/zampierilucas
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: zampierilucas
+      revision: feat/individual-hid-battery-reporting
       import: app/west.yml
   self:
     path: config
