@@ -19,7 +19,7 @@
 #
 ---
 include:
-  - board: nrf52840dongle/nrf52840
+  - board: nrf52840dongle//zmk
     snippet: zmk-usb-logging
     shield: glove80_dongle
 
@@ -28,7 +28,7 @@ include:
   - board: glove80_rh
     shield: glove80_custom
 
-  - board: nrf52840dongle/nrf52840
+  - board: nrf52840dongle//zmk
     shield: glove80_dongle settings_reset
   - board: glove80_lh
     shield: glove80_custom settings_reset
