@@ -1,0 +1,12 @@
+if SHIELD_GLOVE80_CUSTOM
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default n
+
+config ZMK_SPLIT
+    default y
+
+endif

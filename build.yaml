@@ -24,13 +24,13 @@ include:
     shield: glove80_dongle
 
   - board: glove80_lh
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    shield: glove80_custom
   - board: glove80_rh
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    shield: glove80_custom
 
   - board: nrf52840dongle/nrf52840
-    shield: settings_reset
+    shield: glove80_dongle settings_reset
   - board: glove80_lh
-    shield: settings_reset
+    shield: glove80_custom settings_reset
   - board: glove80_rh
-    shield: settings_reset
+    shield: glove80_custom settings_reset
