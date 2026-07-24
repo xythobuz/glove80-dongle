@@ -1,3 +1,5 @@
+#include <dt-bindings/zmk/battery_reporting.h>
+
 / {
     chosen {
         zmk,battery-reporting = &battery_reporting;
