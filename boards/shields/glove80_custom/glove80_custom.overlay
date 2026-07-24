@@ -11,11 +11,11 @@
         };
         left {
             display-name = "Left";
-            cpf = <0x010D>;
+            cpf = <ZMK_CPF_DESC_LEFT>;
         };
         right {
             display-name = "Right";
-            cpf = <0x010E>;
+            cpf = <ZMK_CPF_DESC_RIGHT>;
         };
     };
 };

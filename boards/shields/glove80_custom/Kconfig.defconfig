@@ -9,4 +9,7 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 config ZMK_SPLIT
     default y
 
+config ZMK_BATTERY_REPORTING_SPLIT_REPORT_LOWEST_CHARGE
+    default y
+
 endif
