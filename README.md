@@ -11,6 +11,7 @@ Looking at the USB logs, the key presses were transmitted and detected, but it d
 So I simply added the physical-layout and keymap related stuff that was missing, as explained in the [documentation for dongles](https://zmk.dev/docs/hardware-integration/dongle).
 This got me a working upstream ZMK Glove80 build with Dongle support.
 To get the underglow feature working just needed a mock led strip config in the dongle device tree so the setting is synced globally from the central to the peripherals.
+And with some unmerged upstream pull requests we even get battery level reporting of the peripherals via the USB dongle.
 
 ## Details
 
@@ -29,6 +30,11 @@ The required data is only available on the Central, which is now the dongle, so 
 
 So back to the upstream ZMK, I then got the underglow feature working thanks to [this issue by Samsuper12](https://github.com/zmkfirmware/zmk/issues/3017).
 Binaries from this are [also available](https://github.com/xythobuz/glove80-dongle/releases/tag/upstream-v2).
+
+Then I found [this pullrequest](https://github.com/zmkfirmware/zmk/pull/2938) with battery reporting over USB HID.
+Fortunately "zampierilucas" did the work to upstream support for multiple battery reports in Linux 7.2, so [there is a branch for that](https://github.com/zampierilucas/zmk/tree/feat/individual-hid-battery-reporting).
+I then [rebased](https://github.com/xythobuz/zmk/tree/feat/individual-hid-battery-reporting) this on top of the current master.
+Also has [pre-built binaries](https://github.com/xythobuz/glove80-dongle/releases/tag/custom-v3).
 
 ## Flash Dongle
 
@@ -49,9 +55,11 @@ You need to convert the generated `.bin` file to a `.zip` for the DFU bootloader
 Then you can flash via the same DFU bootloader.
 To enter the bootloader, stick the dongle into an USB port, then press the `RESET` button.
     
-    ./nrfutil pkg generate --hw-version 52 --sd-req=0x00  --application glove80_dongle-nrf52840dongle__zmk-zmk.bin --application-version 1 dongle.zip
+    ./nrfutil pkg generate --hw-version 52 --sd-req=0x00  --application glove80_dongle-nrf52840dongle__zmk-zmk.bin --application-version 1 dongle_fw.zip
 
-    ./nrfutil device program --firmware dongle.zip --traits nordicDfu
+The [releases](https://github.com/xythobuz/glove80-dongle/releases) already come with a prepared `dongle_fw.zip`.
+
+    ./nrfutil device program --firmware dongle_fw.zip --traits nordicDfu
 
 ## Flash Keyboard
 
