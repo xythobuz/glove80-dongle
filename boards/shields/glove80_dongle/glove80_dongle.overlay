@@ -50,6 +50,7 @@
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &physical_layout0;
         zmk,underglow = &led_strip;
+        zmk,battery-reporting = &battery_reporting;
     };
     
     mock_kscan: mock_kscan_0 {
@@ -77,5 +78,21 @@
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>; /* WS2812_CE */
         init-delay-ms = <100>;
+    };
+
+    battery_reporting: battery_reporting {
+        compatible = "zmk,battery-reporting";
+
+        dongle {
+            hidden;
+        };
+        left {
+            display-name = "Left";
+            cpf = <0x010D>;
+        };
+        right {
+            display-name = "Right";
+            cpf = <0x010E>;
+        };
     };
 };
