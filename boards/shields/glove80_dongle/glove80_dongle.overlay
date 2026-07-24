@@ -88,11 +88,10 @@
             hidden;
         };
         left {
-            display-name = "Left";
+            // display-name defaults to text version of `cpf` value.
             cpf = <ZMK_CPF_DESC_LEFT>;
         };
         right {
-            display-name = "Right";
             cpf = <ZMK_CPF_DESC_RIGHT>;
         };
     };

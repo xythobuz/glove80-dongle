@@ -10,6 +10,6 @@ config ZMK_SPLIT
     default y
 
 config ZMK_BATTERY_REPORTING_SPLIT_REPORT_LOWEST_CHARGE
-    default y
+    default n
 
 endif
